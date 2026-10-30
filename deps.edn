@@ -12,10 +12,6 @@
  ;; README and create a `:local/root` dep for the driver and launch the REPL from the Metabase project rather than
  ;; from here
 
- ;;; needed for Metabase as a local dep for local development
- :mvn/repos
- {"opensaml" {:url "https://build.shibboleth.net/nexus/content/repositories/releases/"}}
-
  :aliases
  {:dev
   {:extra-deps

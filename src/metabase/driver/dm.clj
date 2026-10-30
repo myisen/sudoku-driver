@@ -1,8 +1,9 @@
 (ns metabase.driver.dm
   "Dameng (DM) database driver."
-  (:require [metabase.driver :as driver]
+  (:require [clojure.string :as str]
+            [metabase.driver :as driver]
+            [metabase.driver.sql-jdbc :as sql-jdbc]
             [metabase.driver.sql-jdbc.connection :as sql-jdbc.conn]
-            [metabase.driver.sql-jdbc.driver :as sql-jdbc.driver]
             [metabase.driver.sql-jdbc.sync :as sql-jdbc.sync]))
 
 (driver/register! :dm, :parent :sql-jdbc)

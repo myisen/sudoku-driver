@@ -30,10 +30,10 @@
 (defmethod sql.qp/date [:dm :week] [_ _ expr]
   (trunc "iw" expr))
 
-(defmethod sql.qp/unix-timestamp->timestamp [:dm :seconds]
-  [_ _ expr]
+(defmethod sql.qp/unix-timestamp->honeysql [:dm :seconds]
+  [_driver _unit expr]
   (hx/call :dateadd (hx/literal "ss") expr (hx/literal "1970-01-01 00:00:00")))
 
-(defmethod sql.qp/unix-timestamp->timestamp [:dm :milliseconds]
-  [_ _ expr]
-  (hx/call :dateadd (hx/literal "ss") (hx// expr 1000) (hx/literal "1970-01-01 00:00:00")))
+(defmethod sql.qp/unix-timestamp->honeysql [:dm :milliseconds]
+  [driver _unit expr]
+  (sql.qp/unix-timestamp->honeysql driver :seconds (hx// expr 1000)))
