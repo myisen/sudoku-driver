@@ -10,14 +10,14 @@ Make sure you have the `clojure` CLI version `1.10.3.933` or newer installed; yo
 --version`. Follow the instructions at https://clojure.org/guides/getting_started if you need to install a
 newer version.
 
-## Prereq: Get the Dameng JDBC driver
+## Prereq: Dameng JDBC driver
 
-The driver requires the Dameng JDBC driver `DmJdbcDriver18.jar` (JDK 1.8+, JDBC 4.2):
+The driver uses the Dameng JDBC driver `DmJdbcDriver18` (JDK 1.8+, JDBC 4.2), pulled straight from Maven Central
+by `deps.edn`: `com.dameng/DmJdbcDriver18 {:mvn/version "8.1.3.140"}`.
 
-* copy it from your DM installation directory `<DM_HOME>/drivers/jdbc/DmJdbcDriver18.jar` into the `lib/`
-  directory of this project (referenced as a `:local/root` dependency in `deps.edn`), **or**
-* edit `deps.edn` to pull it from Maven Central instead:
-  `com.dameng/DmJdbcDriver18 {:mvn/version "8.1.3.140"}`.
+If your environment has no network access to Maven Central, put a local
+`DmJdbcDriver18.jar` (from your DM installation directory `<DM_HOME>/drivers/jdbc/`) into the `lib/` directory and
+change `deps.edn` to use `com.dameng/DmJdbcDriver18 {:local/root "lib/DmJdbcDriver18.jar"}` instead.
 
 ## Prereq: Clone the Metabase core repo
 
