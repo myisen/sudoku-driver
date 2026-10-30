@@ -1,0 +1,42 @@
+<evaluation>
+  <qa_pair>
+    <question>当前连接的 AstrBot 版本是多少？</question>
+    <answer>4.18.3</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>AstrBot 上已安装多少个插件？</question>
+    <answer>4 个插件</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>名为 astrbot 的插件作者是谁？</question>
+    <answer>Soulter</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>astrbot 插件的版本号是多少？</question>
+    <answer>4.1.0</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>session_controller 插件的版本是多少？</question>
+    <answer>v1.0.1</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>astrbot-web-searcher 插件的版本是多少？</question>
+    <answer>1.14.514</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>人格“运营助手”的 system_prompt 内容是什么？</question>
+    <answer>你是群运营助手，负责解答群成员问题并维护群聊秩序。</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>人格“运营助手”配置了哪些开场对话（begin_dialogs）？</question>
+    <answer>共 2 条：大家好、你们好，我是运营助手</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>人格“翻译专家”的 system_prompt 内容是什么？</question>
+    <answer>你是专业翻译助理，精通中英互译。</answer>
+  </qa_pair>
+  <qa_pair>
+    <question>当前接入的平台数量（platform_count）和累计消息数（message_count）分别是多少？</question>
+    <answer>platform_count 为 1，message_count 为 0</answer>
+  </qa_pair>
+</evaluation>
