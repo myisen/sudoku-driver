@@ -1,15 +1,20 @@
 # Complete list of options here: https://github.com/metabase/metabase/wiki/Metabase-Plugin-Manifest-Reference
 info:
-  name: Metabase Sudoku Driver
+  name: Metabase Dameng (DM) Driver
   version: 1.0.0
-  description: Generates SuDoKuS
+  description: Allows Metabase to connect to Dameng (DM) databases.
 driver:
-  name: sudoku
+  name: dm
+  display-name: Dameng (DM)
   lazy-load: true
+  parent: sql-jdbc
   # https://github.com/metabase/metabase/blob/master/src/metabase/driver/common.clj
   connection-properties:
-    - name: your-name
-      display-name: Your name
+    - host
+    - port
+    - dbname
+    - user
+    - password
 init:
   - step: load-namespace
-    namespace: metabase.driver.sudoku
+    namespace: metabase.driver.dm

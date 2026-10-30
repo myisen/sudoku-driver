@@ -4,6 +4,8 @@
 /.nrepl-port
 .cpcache
 .class
+# user-provided Dameng JDBC driver jar
+lib/*.jar
 
 # lsp: ignore all but the config file
 .lsp/*

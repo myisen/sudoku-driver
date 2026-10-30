@@ -1,8 +1,13 @@
 {:paths
  ["src" "resources"]
 
+ ;; Dameng JDBC driver. Put the user-provided DmJdbcDriver18.jar in the lib/ directory
+ ;; (downloaded from the DM installation dir <DM_HOME>/drivers/jdbc/DmJdbcDriver18.jar).
+ ;;
+ ;; Alternatively pull it straight from Maven Central instead of a local jar:
+ ;;   {com.dameng/DmJdbcDriver18 {:mvn/version "8.1.3.140"}}
  :deps
- {org.clojure/core.logic {:mvn/version "1.0.0"}}
+ {com.dameng/DmJdbcDriver18 {:local/root "lib/DmJdbcDriver18.jar"}}
 
  ;; the stuff below is only for hacking on the driver locally and is not needed if you follow the instructions in the
  ;; README and create a `:local/root` dep for the driver and launch the REPL from the Metabase project rather than
