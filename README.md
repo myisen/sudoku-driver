@@ -1,6 +1,6 @@
 # Metabase Driver: Dameng (达梦 / DM)
 
-Metabase driver for Dameng (DM8) databases, based on the `sql-jdbc` driver hierarchy. Built against Metabase 0.46.
+Metabase driver for Dameng (DM8) databases, based on the `sql-jdbc` driver hierarchy. Built against Metabase 0.65.
 
 Once built, all you need to do is drop the driver in your `/path/to/metabase/plugins/` directory.
 
@@ -25,7 +25,7 @@ change `deps.edn` to use `com.dameng/DmJdbcDriver18 {:local/root "lib/DmJdbcDriv
 git clone https://github.com/metabase/metabase
 ```
 
-## Build it (Updated for build script changes in Metabase 0.46.0)
+## Build it (Updated for build script changes in Metabase 0.65)
 
 Unfortunately the current command for building a driver is quite a mouthful, but we needed to make changes to how the
 Metabase build script works to avoid issues with dependencies shadowing one another. Please upvote
@@ -113,7 +113,7 @@ It's easiest to create an alias in `~/.clojure/deps.edn` to include the source p
 {:aliases
  {:user/dm-driver
   {:extra-deps {metabase/dm-driver {:local/root "/home/cam/dm-driver"}}
-   :jvm-opts   ["-Dmb.dev.additional.driver.manifest.paths=/home/cam/dm-driver/resources/metabase-plugin.yaml"]}}}
+   :jvm-opts   ["-Dmb.dev.additional.driver.manifest.paths=/home/cam/dm-driver/resources/metabase/dm/metabase-plugin.yaml"]}}}
 ```
 
 And then start a (n)REPL or run a dev server from the main Metabase project directory with something like:
@@ -135,6 +135,6 @@ You can also pass these options directly to `clojure` e.g.
 # start the dev server
 clojure \
   -Sdeps '{:deps {metabase/dm-driver {:local/root "/home/cam/dm-driver"}}}' \
-  -J-Dmb.dev.additional.driver.manifest.paths=/home/cam/dm-driver/resources/metabase-plugin.yaml \
+  -J-Dmb.dev.additional.driver.manifest.paths=/home/cam/dm-driver/resources/metabase/dm/metabase-plugin.yaml \
   -M:run
 ```

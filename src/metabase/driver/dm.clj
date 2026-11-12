@@ -1,12 +1,18 @@
 (ns metabase.driver.dm
   "Dameng (DM) database driver."
-  (:require [clojure.string :as str]
-            [metabase.driver :as driver]
-            [metabase.driver.sql-jdbc :as sql-jdbc]
-            [metabase.driver.sql-jdbc.connection :as sql-jdbc.conn]
-            [metabase.driver.sql-jdbc.sync :as sql-jdbc.sync]))
+  (:require
+   [clojure.string :as str]
+   [metabase.driver :as driver]
+   ;; load the query processor extensions so their multimethods are registered when the driver loads
+   [metabase.driver.dm.query-processor]
+   [metabase.driver.sql-jdbc.connection :as sql-jdbc.conn]
+   [metabase.driver.sql-jdbc.sync :as sql-jdbc.sync]))
 
 (driver/register! :dm, :parent :sql-jdbc)
+
+(defmethod driver/db-start-of-week :dm
+  [_driver]
+  :sunday)
 
 ;;; +----------------------------------------------------------------------------------------------------------------+
 ;;; |                                                    connection                                                  |
@@ -19,7 +25,9 @@
   (merge
    (cond-> {:classname   "dm.jdbc.driver.DmDriver"
             :subprotocol "dm"
-            :subname     (str host ":" port)}
+            ;; standard DM JDBC URL is jdbc:dm://host:port -- the `//` is required, otherwise the JDBC driver
+            ;; does not recognize the URL and DriverManager reports "No suitable driver found".
+            :subname     (str "//" host ":" port)}
      (seq dbname)   (assoc :schema dbname)
      (seq user)     (assoc :user user)
      (seq password) (assoc :password password))

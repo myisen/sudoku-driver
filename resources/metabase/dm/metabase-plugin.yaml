@@ -1,7 +1,6 @@
-# Complete list of options here: https://github.com/metabase/metabase/wiki/Metabase-Plugin-Manifest-Reference
 info:
   name: Metabase Dameng (DM) Driver
-  version: 1.0.0
+  version: 1.1.0
   description: Allows Metabase to connect to Dameng (DM) databases.
 driver:
   name: dm
@@ -18,3 +17,5 @@ driver:
 init:
   - step: load-namespace
     namespace: metabase.driver.dm
+  - step: register-jdbc-driver
+    class: dm.jdbc.driver.DmDriver
