@@ -104,7 +104,7 @@ agent-tool-host → [③ 结果回传平台]
 SSH 不认 HTTP 代理环境变量。好在 OpenBSD netcat 支持 `-X connect`，可以用 ProxyCommand 穿透：
 
 ```sh
-ssh -p 32622 \
+ssh -p <VPS端口> \
   -o ProxyCommand="nc -X connect -x 127.0.0.1:18080 %h %p" \
   root@your-vps-ip 'echo CONNECT_OK'
 ```
@@ -165,7 +165,7 @@ EOF
 ### 6.2 建立反向隧道
 
 ```sh
-ssh -p 32622 \
+ssh -p <VPS端口> \
   -o ProxyCommand="nc -X connect -x 127.0.0.1:18080 %h %p" \
   -N -R 2222:localhost:2222 \
   -o ServerAliveInterval=30 -o ServerAliveCountMax=3 \
