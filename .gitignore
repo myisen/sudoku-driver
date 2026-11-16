@@ -9,3 +9,7 @@
 .lsp/*
 !.lsp/config.edn
 .clj-kondo/.cache
+
+# release artifacts are tracked on purpose (override global *.jar ignore)
+!dist/
+!dist/*.jar
